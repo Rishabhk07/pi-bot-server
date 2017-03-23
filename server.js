@@ -19,19 +19,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 io.on('connection' , (socket)=>{
    console.log("connection called");
 
+    socket.emit("connection" , {data: "Rishabh Khanna"});
+
+
     socket.on('foo' , (data)=>{
         console.log(data);
     });
 
-    socket.on('sensor' , (data)=>{
-
+    socket.on('sensor', (data)=>{
         // console.log(JSON.parse(data));
         var json = JSON.parse(data);
         console.log( "x " +  json.accelX);
         console.log( "y " + json.accelY);
         console.log( "z " + json.accelZ);
-        socket.emit('car' , data);
-    })
+        io.emit("car", data);
+
+    });
 });
 
 
