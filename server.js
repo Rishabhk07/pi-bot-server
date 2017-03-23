@@ -11,6 +11,8 @@ const app = express();
 const server = http.Server(app);
 const io = socket(server);
 
+var port = process.env.PORT || 8888;
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -36,6 +38,6 @@ io.on('connection' , (socket)=>{
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 
-server.listen(8888, ()=>{
-    console.log("Socket Magic at 8888");
+server.listen(port, ()=>{
+    console.log("Socket Magic at " + port);
 });
