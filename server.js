@@ -13,6 +13,14 @@ const io = socket(server);
 
 var port = process.env.PORT || 8888;
 
+process.argv.forEach(function (val, index, array) {
+    if(index != 1 && index != 0){
+
+        console.log(val);
+    }
+});
+
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -29,15 +37,16 @@ io.on('connection' , (socket)=>{
     socket.on('sensor', (data)=>{
         // console.log(JSON.parse(data));
         var json = JSON.parse(data);
+        console.log(json);
         console.log( "x " +  json.accelX);
         console.log( "y " + json.accelY);
         console.log( "z " + json.accelZ);
         io.emit("car", data);
-
+        // socket.broadcast.emit('other', data);
     });
 });
 
-
+module.exports =
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 

@@ -3,4 +3,5 @@
     width: 50px;
     border-radius: 25px;
     background-color: blue;
+    position: absolute;
 }
