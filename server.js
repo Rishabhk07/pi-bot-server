@@ -12,6 +12,7 @@ const server = http.Server(app);
 const io = socket(server);
 
 var port = process.env.PORT || 8888;
+var controlValue = "stop";
 
 process.argv.forEach(function (val, index, array) {
     if(index != 1 && index != 0){
@@ -61,9 +62,36 @@ io.on('connection' , (socket)=>{
             control.stop();
         }
     })
+
+    socket.on('sensorControl' , (data)=>{
+        console.log(JSON.parse(data));
+        data = JSON.parse(data);
+        if(data.direction != controlValue){
+            controlValue = data.direction;
+            if(controlValue == "stop"){
+                control.stop();
+                console.log("sensor stop called");
+            }else if(controlValue == "left"){
+                control.left();
+                console.log("sensor left called");
+            }else if(controlValue == "right"){
+                control.right();
+                console.log("sensor right called");
+            }else if(controlValue == "forward"){
+                control.forward();
+                console.log("sensor forward called");
+            }else if(controlValue == "backward"){
+                control.backward();
+                console.log("sensor backward called");
+            }
+        }
+
+
+    })
+
 });
 
-module.exports =
+
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 
