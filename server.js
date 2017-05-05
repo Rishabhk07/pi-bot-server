@@ -5,7 +5,7 @@ const express = require('express');
 const http = require('http');
 const socket = require('socket.io');
 const path = require('path');
-const control = require('../onoff-npm/controls');
+const control = require('./controls');
 const app = express();
 
 const server = http.Server(app);
@@ -48,7 +48,7 @@ io.on('connection' , (socket)=>{
     socket.on('control' , (data)=>{
         //car control from mobile buttons
         console.log(JSON.parse(data));
-	data = JSON.parse(data);
+	    data = JSON.parse(data);
         if(data.direction == "left"){
             control.left();
         }else if(data.direction == "right"){
