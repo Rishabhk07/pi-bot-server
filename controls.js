@@ -45,6 +45,26 @@ function backward() {
 }
 
 function right() {
+
+    //move right front wheel & left back wheel forward
+    pin22.write(1 , function () {
+        console.log("false on pin 22")
+    });
+    pin10.write(0 , function () {
+        console.log("true on pin 10")
+    });
+
+    //move left front wheel  & right back wheel backward
+    pin27.write(1 , function () {
+        console.log("false on pin 27");
+    });
+    pin17.write(0,function () {
+        console.log("true on pin17");
+    });
+}
+
+function left() {
+
     //move left front wheel  & right back wheel forward
     pin17.write(1,function () {
         console.log("true on pin17");
@@ -59,26 +79,6 @@ function right() {
     });
     pin22.write( 0 , function () {
         console.log("false on pin 22")
-    });
-}
-
-function left() {
-
-    //move right front wheel & left back wheel forward
-    pin22.write(1 , function () {
-        console.log("false on pin 22")
-    });
-    pin10.write(0 , function () {
-        console.log("true on pin 10")
-    });
-
-
-    //move left front wheel  & right back wheel backward
-    pin27.write(1 , function () {
-        console.log("false on pin 27");
-    });
-    pin17.write(0,function () {
-        console.log("true on pin17");
     });
 
 
