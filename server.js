@@ -44,6 +44,21 @@ io.on('connection' , (socket)=>{
         io.emit("car", data);
         // socket.broadcast.emit('other', data);
     });
+
+    socket.on('control' , (data)=>{
+        //car control from mobile buttons
+        console.log(JSON.parse(data));
+
+        if(data.direction == "left"){
+
+        }else if(data.direction == "right"){
+
+        }else if(data.direction == "forward"){
+
+        }else if(data.direction == "backward"){
+
+        }
+    })
 });
 
 module.exports =
