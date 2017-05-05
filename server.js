@@ -5,7 +5,7 @@ const express = require('express');
 const http = require('http');
 const socket = require('socket.io');
 const path = require('path');
-
+const control = require('../gp-car/controls');
 const app = express();
 
 const server = http.Server(app);
@@ -50,13 +50,15 @@ io.on('connection' , (socket)=>{
         console.log(JSON.parse(data));
 
         if(data.direction == "left"){
-
+            control.left();
         }else if(data.direction == "right"){
-
+            control.right();
         }else if(data.direction == "forward"){
-
+            control.forward();
         }else if(data.direction == "backward"){
-
+            control.backward();
+        }else if(data.direction == "stop"){
+            control.stop();
         }
     })
 });
