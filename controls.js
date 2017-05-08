@@ -12,6 +12,28 @@ var pin10 = new gpio(10 , 'out');
 
 function forward() {
     // all tiers move in single direction - ie forward
+    pin27.write(1 , function () {
+        console.log("true on pin 27")
+    });
+    pin17.write(0 , function () {
+        console.log("false on pin 17");
+    });
+
+    pin10.write(1 , function () {
+        console.log("true on pin 10");
+    });
+    pin22.write(0 , function () {
+        console.log("false on pin 22");
+    });
+
+}
+
+function backward() {
+    // all tiers move in single direction - ie backward
+
+
+
+
     pin17.write(1 , function () {
         console.log("true on pin 17");
     });
@@ -27,45 +49,9 @@ function forward() {
     });
 }
 
-function backward() {
-    // all tiers move in single direction - ie backward
-    pin27.write(1 , function () {
-        console.log("true on pin 27")
-    });
-    pin17.write(0 , function () {
-        console.log("false on pin 17");
-    });
-
-    pin10.write(1 , function () {
-        console.log("true on pin 10");
-    });
-    pin22.write(0 , function () {
-        console.log("false on pin 22");
-    });
-}
-
 function right() {
 
     //move right front wheel & left back wheel forward
-    pin22.write(1 , function () {
-        console.log("false on pin 22")
-    });
-    pin10.write(0 , function () {
-        console.log("true on pin 10")
-    });
-
-    //move left front wheel  & right back wheel backward
-    pin27.write(1 , function () {
-        console.log("false on pin 27");
-    });
-    pin17.write(0,function () {
-        console.log("true on pin17");
-    });
-}
-
-function left() {
-
-    //move left front wheel  & right back wheel forward
     pin17.write(1,function () {
         console.log("true on pin17");
     });
@@ -81,6 +67,29 @@ function left() {
         console.log("false on pin 22")
     });
 
+}
+
+function left() {
+
+    //move left front wheel  & right back wheel forward
+
+
+
+
+    pin22.write(1 , function () {
+        console.log("false on pin 22")
+    });
+    pin10.write(0 , function () {
+        console.log("true on pin 10")
+    });
+
+    //move left front wheel  & right back wheel backward
+    pin27.write(1 , function () {
+        console.log("false on pin 27");
+    });
+    pin17.write(0,function () {
+        console.log("true on pin17");
+    });
 
 
 }
