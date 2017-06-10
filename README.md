@@ -3,7 +3,7 @@ This project is the server code for pi bot written in node.js, it runs on the ra
 
 According to the direction given by the android app(received using socket.io), server sends GPIO commands to move the car accordingly.
 
-# Technology used]()
+# Technology used
   1. ![Node.js](https://nodejs.org/)
   2. ![socket.io](https://socket.io)
   3. ![Express](https://expressjs.com/)
