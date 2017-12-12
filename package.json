@@ -9,7 +9,10 @@
   "author": "Rishabh Khanna",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.17.1",
     "express": "^4.15.2",
+    "ip": "^1.1.5",
+    "node-where": "^1.1.0",
     "onoff": "^1.1.2",
     "sleep": "^5.1.1",
     "socket.io": "^1.7.3"
