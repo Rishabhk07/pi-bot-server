@@ -12,7 +12,9 @@ const axios = require('axios');
 
 const server = http.Server(app);
 const io = socket(server);
-
+let users = {
+    rishabh: 'rishabh'
+};
 var port = process.env.PORT || 8888;
 var controlValue = "stop";
 
@@ -115,7 +117,10 @@ io.on('connection', (socket) => {
 
 
 app.use('/', express.static(path.join(__dirname, 'public')));
-
+app.use('/auth', (req,res)=>{
+    users[req.data.user.split('@')[0]] = req.data.password;
+    res.send(req.data)
+});
 
 server.listen(port, () => {
     console.log("Socket Magic at " + port);
